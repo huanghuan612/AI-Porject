@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "target_type": {
+        "enum": [
+          "HYPOTHESIS",
+          "DIRECTION"
+        ]
+      },
+      "target_id": {
+        "type": "string"
+      },
+      "outcome": {
+        "enum": [
+          "ENHANCE",
+          "MAINTAIN",
+          "DOWNGRADE",
+          "OVERTURN"
+        ]
+      },
+      "evidence_ids": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "reason": {
+        "type": "string"
+      },
+      "not_based_only_on_completion_score_speed_exit": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "target_type",
+      "target_id",
+      "outcome",
+      "evidence_ids",
+      "reason",
+      "not_based_only_on_completion_score_speed_exit"
+    ],
+    "additionalProperties": false
+  }
+}

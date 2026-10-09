@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "field_id": {
+        "enum": [
+          "F01",
+          "F02",
+          "F03",
+          "F04",
+          "F05",
+          "F06",
+          "F07",
+          "F08"
+        ]
+      },
+      "context_scope": {
+        "type": "string"
+      },
+      "observation": {
+        "anyOf": [
+          {
+            "type": "null"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "unknown": {
+        "type": "boolean"
+      },
+      "supporting_evidence_ids": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "contradicting_evidence_ids": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "hypothesis_ids": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "field_id",
+      "context_scope",
+      "observation",
+      "unknown",
+      "supporting_evidence_ids",
+      "contradicting_evidence_ids",
+      "hypothesis_ids"
+    ],
+    "additionalProperties": false
+  }
+}

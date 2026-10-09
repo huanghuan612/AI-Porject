@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "task_id": {
+      "type": "string"
+    },
+    "mode": {
+      "enum": [
+        "NEUTRAL",
+        "PERSONALIZED"
+      ]
+    },
+    "direction_id": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "instruction": {
+      "type": "string"
+    },
+    "target_construct": {
+      "enum": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08"
+      ]
+    },
+    "target_hypothesis": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "what_is_being_tested": {
+      "type": "string"
+    },
+    "observable_support_signal": {
+      "type": "string"
+    },
+    "observable_counter_signal": {
+      "type": "string"
+    },
+    "ambiguous_signal": {
+      "type": "string"
+    },
+    "response_group_id": {
+      "type": "string"
+    },
+    "notice": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "task_id",
+    "mode",
+    "direction_id",
+    "instruction",
+    "target_construct",
+    "target_hypothesis",
+    "what_is_being_tested",
+    "observable_support_signal",
+    "observable_counter_signal",
+    "ambiguous_signal",
+    "response_group_id",
+    "notice"
+  ],
+  "additionalProperties": false
+}

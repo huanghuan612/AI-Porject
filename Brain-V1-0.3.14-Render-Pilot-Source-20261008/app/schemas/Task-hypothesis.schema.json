@@ -1,0 +1,324 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "new_evidence": {
+      "const": []
+    },
+    "evidence_validation": {
+      "const": []
+    },
+    "evidence_status": {
+      "const": []
+    },
+    "student_state_updates": {
+      "const": []
+    },
+    "active_hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "hypothesis_id": {
+            "type": "string"
+          },
+          "claim": {
+            "type": "string"
+          },
+          "supporting_evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "contradicting_evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "alternative_hypothesis_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "confidence": {
+            "enum": [
+              "LOW",
+              "MEDIUM",
+              "HIGH"
+            ]
+          },
+          "missing_evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "disconfirming_evidence_criteria": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "best_next_question_intent": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "ACTIVE",
+              "WEAKENED",
+              "REJECTED",
+              "CONFIRMED_ENOUGH"
+            ]
+          }
+        },
+        "required": [
+          "hypothesis_id",
+          "claim",
+          "supporting_evidence_ids",
+          "contradicting_evidence_ids",
+          "alternative_hypothesis_ids",
+          "confidence",
+          "missing_evidence",
+          "disconfirming_evidence_criteria",
+          "best_next_question_intent",
+          "status"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "supporting_evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "contradicting_evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "confidence_updates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "hypothesis_id": {
+            "type": "string"
+          },
+          "before": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "enum": [
+                  "LOW",
+                  "MEDIUM",
+                  "HIGH"
+                ]
+              }
+            ]
+          },
+          "after": {
+            "enum": [
+              "LOW",
+              "MEDIUM",
+              "HIGH"
+            ]
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "hypothesis_id",
+          "before",
+          "after",
+          "reason"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "missing_information": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "next_action": {
+      "const": ""
+    },
+    "next_question_intent": {
+      "const": ""
+    },
+    "small_insight_ready": {
+      "const": false
+    },
+    "mirror_ready": {
+      "const": false
+    },
+    "mirror_candidate": {
+      "const": null
+    },
+    "direction_ready": {
+      "const": false
+    },
+    "direction_candidates": {
+      "const": []
+    },
+    "micro_experience_update": {
+      "const": null
+    },
+    "stop_reason": {
+      "const": null
+    },
+    "task_data": {
+      "type": "object",
+      "properties": {
+        "audits": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "hypothesis_id": {
+                "type": "string"
+              },
+              "scope_preserved": {
+                "type": "boolean"
+              },
+              "evidence_alignment": {
+                "type": "boolean"
+              },
+              "cross_support": {
+                "type": "boolean"
+              },
+              "alternatives_differentiated": {
+                "type": "boolean"
+              },
+              "alternatives_weakened": {
+                "type": "boolean"
+              },
+              "direction_consistent": {
+                "type": "boolean"
+              },
+              "independent_groups": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "contexts": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "context": {
+                      "type": "string"
+                    },
+                    "evidence_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "context",
+                    "evidence_ids"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "counter_test_evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "unresolved_strong_evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "new_information_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "transition": {
+                "enum": [
+                  "NEW",
+                  "MAINTAIN",
+                  "NEW_SUPPORT",
+                  "STRONG_CONTRADICTION",
+                  "SUPPORT_INVALIDATED",
+                  "SCOPE_NARROWED",
+                  "ALTERNATIVE_ADVANTAGE",
+                  "CONFLICT_RESOLVED",
+                  "CORE_RETRACTED",
+                  "MULTIPLE_STRONG_CONTRADICTIONS",
+                  "FORBIDDEN_INFERENCE_REQUIRED"
+                ]
+              },
+              "reason": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "hypothesis_id",
+              "scope_preserved",
+              "evidence_alignment",
+              "cross_support",
+              "alternatives_differentiated",
+              "alternatives_weakened",
+              "direction_consistent",
+              "independent_groups",
+              "contexts",
+              "counter_test_evidence_ids",
+              "unresolved_strong_evidence_ids",
+              "new_information_ids",
+              "transition",
+              "reason"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "audits"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "new_evidence",
+    "evidence_validation",
+    "evidence_status",
+    "student_state_updates",
+    "active_hypotheses",
+    "supporting_evidence_ids",
+    "contradicting_evidence_ids",
+    "confidence_updates",
+    "missing_information",
+    "next_action",
+    "next_question_intent",
+    "small_insight_ready",
+    "mirror_ready",
+    "mirror_candidate",
+    "direction_ready",
+    "direction_candidates",
+    "micro_experience_update",
+    "stop_reason",
+    "task_data"
+  ],
+  "additionalProperties": false
+}

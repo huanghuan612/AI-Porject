@@ -1,0 +1,201 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "new_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "evidence_id": {
+            "type": "string"
+          },
+          "source_question_id": {
+            "type": "string"
+          },
+          "question_context": {
+            "type": "object",
+            "properties": {
+              "question_text": {
+                "type": "string"
+              },
+              "options": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "scenario": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "question_text",
+              "options",
+              "scenario"
+            ],
+            "additionalProperties": false
+          },
+          "response_group_id": {
+            "type": "string"
+          },
+          "raw_answer": {
+            "type": "string"
+          },
+          "source_type": {
+            "enum": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          "content_owner": {
+            "enum": [
+              "STUDENT",
+              "PARENT",
+              "TEACHER",
+              "PEER",
+              "EXTERNAL",
+              "UNKNOWN"
+            ]
+          },
+          "target_construct": {
+            "type": "string"
+          },
+          "minimal_interpretation": {
+            "type": "string"
+          },
+          "evidence_directness": {
+            "enum": [
+              "WEAK",
+              "MEDIUM",
+              "STRONG"
+            ]
+          },
+          "evidence_status": {
+            "enum": [
+              "ACTIVE",
+              "UNKNOWN",
+              "UNCERTAIN",
+              "INVALID",
+              "RETRACTED",
+              "SUPERSEDED"
+            ]
+          },
+          "context_scope": {
+            "type": "string"
+          },
+          "contradiction_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "local_guardrails": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "evidence_id",
+          "source_question_id",
+          "question_context",
+          "response_group_id",
+          "raw_answer",
+          "source_type",
+          "content_owner",
+          "target_construct",
+          "minimal_interpretation",
+          "evidence_directness",
+          "evidence_status",
+          "context_scope",
+          "contradiction_refs",
+          "local_guardrails"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "evidence_validation": {
+      "const": []
+    },
+    "evidence_status": {
+      "const": []
+    },
+    "student_state_updates": {
+      "const": []
+    },
+    "active_hypotheses": {
+      "const": []
+    },
+    "supporting_evidence_ids": {
+      "const": []
+    },
+    "contradicting_evidence_ids": {
+      "const": []
+    },
+    "confidence_updates": {
+      "const": []
+    },
+    "missing_information": {
+      "const": []
+    },
+    "next_action": {
+      "const": ""
+    },
+    "next_question_intent": {
+      "const": ""
+    },
+    "small_insight_ready": {
+      "const": false
+    },
+    "mirror_ready": {
+      "const": false
+    },
+    "mirror_candidate": {
+      "const": null
+    },
+    "direction_ready": {
+      "const": false
+    },
+    "direction_candidates": {
+      "const": []
+    },
+    "micro_experience_update": {
+      "const": null
+    },
+    "stop_reason": {
+      "const": null
+    },
+    "task_data": {
+      "type": "object",
+      "properties": {},
+      "required": [],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "new_evidence",
+    "evidence_validation",
+    "evidence_status",
+    "student_state_updates",
+    "active_hypotheses",
+    "supporting_evidence_ids",
+    "contradicting_evidence_ids",
+    "confidence_updates",
+    "missing_information",
+    "next_action",
+    "next_question_intent",
+    "small_insight_ready",
+    "mirror_ready",
+    "mirror_candidate",
+    "direction_ready",
+    "direction_candidates",
+    "micro_experience_update",
+    "stop_reason",
+    "task_data"
+  ],
+  "additionalProperties": false
+}

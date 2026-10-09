@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "direction_id": {
+      "type": "string"
+    },
+    "theme": {
+      "type": "string"
+    },
+    "supporting_hypothesis_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "supporting_evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "current_unknown": {
+      "type": "string"
+    },
+    "observable_validation_target": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "EXPLORATORY"
+      ]
+    }
+  },
+  "required": [
+    "direction_id",
+    "theme",
+    "supporting_hypothesis_ids",
+    "supporting_evidence_ids",
+    "current_unknown",
+    "observable_validation_target",
+    "status"
+  ],
+  "additionalProperties": false
+}

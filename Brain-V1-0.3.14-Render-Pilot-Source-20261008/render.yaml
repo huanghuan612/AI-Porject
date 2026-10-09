@@ -1,0 +1,47 @@
+services:
+  - type: web
+    name: brain-v1-pilot-20261011-7f3a
+    runtime: python
+    region: singapore
+    plan: starter
+    rootDir: app
+    buildCommand: pip install -r requirements-render.txt
+    startCommand: gunicorn --workers 1 --threads 1 --bind 0.0.0.0:$PORT pilot:application
+    healthCheckPath: /
+    disk:
+      name: brain-v1-pilot-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: PILOT_LIVE_ENABLED
+        value: "0"
+      - key: PILOT_DATA_DIR
+        value: /var/data
+      - key: PILOT_DB
+        value: /var/data/pilot.sqlite3
+      - key: BRAIN_BUDGET_LEDGER
+        value: /var/data/pilot-budget.json
+      - key: PROVIDER
+        value: aliyun-bailian
+      - key: PYTHON_VERSION
+        value: "3.10.18"
+      - key: BAILIAN_THINKING
+        value: disabled
+      - key: PILOT_BUDGET_LIMIT_YUAN
+        value: "8"
+      - key: PILOT_OVERALL_BUDGET_LIMIT_YUAN
+        value: "20"
+      - key: PILOT_HISTORICAL_ESTIMATED_YUAN
+        value: "10.818338"
+      - key: PILOT_HISTORICAL_CALL_COUNT
+        value: "387"
+      - key: PILOT_HISTORICAL_PENDING_CALLS
+        value: "0"
+      - key: PILOT_MAX_STUDENTS
+        value: "3"
+      - key: PILOT_START_AT
+        value: "2026-10-11T11:00:00+08:00"
+      - key: PILOT_AUTHORIZATION_ID
+        value: OWNER-PILOT-20261011-01-7F3A
+      - key: DASHSCOPE_API_KEY
+        sync: false

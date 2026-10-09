@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "new_evidence": {
+      "const": []
+    },
+    "evidence_validation": {
+      "const": []
+    },
+    "evidence_status": {
+      "const": []
+    },
+    "student_state_updates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "field_id": {
+            "enum": [
+              "F01",
+              "F02",
+              "F03",
+              "F04",
+              "F05",
+              "F06",
+              "F07",
+              "F08"
+            ]
+          },
+          "context_scope": {
+            "type": "string"
+          },
+          "observation": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "unknown": {
+            "type": "boolean"
+          },
+          "supporting_evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "contradicting_evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "hypothesis_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "field_id",
+          "context_scope",
+          "observation",
+          "unknown",
+          "supporting_evidence_ids",
+          "contradicting_evidence_ids",
+          "hypothesis_ids"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "active_hypotheses": {
+      "const": []
+    },
+    "supporting_evidence_ids": {
+      "const": []
+    },
+    "contradicting_evidence_ids": {
+      "const": []
+    },
+    "confidence_updates": {
+      "const": []
+    },
+    "missing_information": {
+      "const": []
+    },
+    "next_action": {
+      "const": ""
+    },
+    "next_question_intent": {
+      "const": ""
+    },
+    "small_insight_ready": {
+      "const": false
+    },
+    "mirror_ready": {
+      "const": false
+    },
+    "mirror_candidate": {
+      "const": null
+    },
+    "direction_ready": {
+      "const": false
+    },
+    "direction_candidates": {
+      "const": []
+    },
+    "micro_experience_update": {
+      "const": null
+    },
+    "stop_reason": {
+      "const": null
+    },
+    "task_data": {
+      "type": "object",
+      "properties": {},
+      "required": [],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "new_evidence",
+    "evidence_validation",
+    "evidence_status",
+    "student_state_updates",
+    "active_hypotheses",
+    "supporting_evidence_ids",
+    "contradicting_evidence_ids",
+    "confidence_updates",
+    "missing_information",
+    "next_action",
+    "next_question_intent",
+    "small_insight_ready",
+    "mirror_ready",
+    "mirror_candidate",
+    "direction_ready",
+    "direction_candidates",
+    "micro_experience_update",
+    "stop_reason",
+    "task_data"
+  ],
+  "additionalProperties": false
+}

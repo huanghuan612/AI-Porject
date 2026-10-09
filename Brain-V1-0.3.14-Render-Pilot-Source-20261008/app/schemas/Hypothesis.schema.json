@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "hypothesis_id": {
+      "type": "string"
+    },
+    "claim": {
+      "type": "string"
+    },
+    "supporting_evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "contradicting_evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "alternative_hypothesis_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "confidence": {
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ]
+    },
+    "missing_evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "disconfirming_evidence_criteria": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "best_next_question_intent": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "ACTIVE",
+        "WEAKENED",
+        "REJECTED",
+        "CONFIRMED_ENOUGH"
+      ]
+    }
+  },
+  "required": [
+    "hypothesis_id",
+    "claim",
+    "supporting_evidence_ids",
+    "contradicting_evidence_ids",
+    "alternative_hypothesis_ids",
+    "confidence",
+    "missing_evidence",
+    "disconfirming_evidence_criteria",
+    "best_next_question_intent",
+    "status"
+  ],
+  "additionalProperties": false
+}

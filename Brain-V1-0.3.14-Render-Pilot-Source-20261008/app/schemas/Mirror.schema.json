@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "output_id": {
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "SMALL_INSIGHT",
+        "WEAK_HYPOTHESIS",
+        "MIRROR"
+      ]
+    },
+    "text": {
+      "type": "string"
+    },
+    "claim": {
+      "type": "string"
+    },
+    "context_scope": {
+      "type": "string"
+    },
+    "hypothesis_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "uncertainty_explicit": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "output_id",
+    "kind",
+    "text",
+    "claim",
+    "context_scope",
+    "hypothesis_ids",
+    "evidence_ids",
+    "uncertainty_explicit"
+  ],
+  "additionalProperties": false
+}

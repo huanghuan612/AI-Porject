@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "new_evidence": {
+      "const": []
+    },
+    "evidence_validation": {
+      "const": []
+    },
+    "evidence_status": {
+      "const": []
+    },
+    "student_state_updates": {
+      "const": []
+    },
+    "active_hypotheses": {
+      "const": []
+    },
+    "supporting_evidence_ids": {
+      "const": []
+    },
+    "contradicting_evidence_ids": {
+      "const": []
+    },
+    "confidence_updates": {
+      "const": []
+    },
+    "missing_information": {
+      "const": []
+    },
+    "next_action": {
+      "const": ""
+    },
+    "next_question_intent": {
+      "const": ""
+    },
+    "small_insight_ready": {
+      "const": false
+    },
+    "mirror_ready": {
+      "const": false
+    },
+    "mirror_candidate": {
+      "const": null
+    },
+    "direction_ready": {
+      "const": false
+    },
+    "direction_candidates": {
+      "const": []
+    },
+    "micro_experience_update": {
+      "const": null
+    },
+    "stop_reason": {
+      "const": null
+    },
+    "task_data": {
+      "type": "object",
+      "properties": {
+        "competitions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "hypothesis_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "relation": {
+                "enum": [
+                  "COMPATIBLE",
+                  "COMPETING",
+                  "UNRESOLVED"
+                ]
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "reason": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "hypothesis_ids",
+              "relation",
+              "evidence_ids",
+              "reason"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "contradictions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "hypothesis_id": {
+                "type": "string"
+              },
+              "evidence_id": {
+                "type": "string"
+              },
+              "context_related": {
+                "type": "boolean"
+              },
+              "direct_negation": {
+                "type": "boolean"
+              },
+              "strong": {
+                "type": "boolean"
+              },
+              "resolved": {
+                "type": "boolean"
+              },
+              "reason": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "hypothesis_id",
+              "evidence_id",
+              "context_related",
+              "direct_negation",
+              "strong",
+              "resolved",
+              "reason"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "competitions",
+        "contradictions"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "new_evidence",
+    "evidence_validation",
+    "evidence_status",
+    "student_state_updates",
+    "active_hypotheses",
+    "supporting_evidence_ids",
+    "contradicting_evidence_ids",
+    "confidence_updates",
+    "missing_information",
+    "next_action",
+    "next_question_intent",
+    "small_insight_ready",
+    "mirror_ready",
+    "mirror_candidate",
+    "direction_ready",
+    "direction_candidates",
+    "micro_experience_update",
+    "stop_reason",
+    "task_data"
+  ],
+  "additionalProperties": false
+}

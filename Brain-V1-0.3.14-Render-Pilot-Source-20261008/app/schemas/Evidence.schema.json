@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "evidence_id": {
+      "type": "string"
+    },
+    "source_question_id": {
+      "type": "string"
+    },
+    "question_context": {
+      "type": "object",
+      "properties": {
+        "question_text": {
+          "type": "string"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "scenario": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "question_text",
+        "options",
+        "scenario"
+      ],
+      "additionalProperties": false
+    },
+    "response_group_id": {
+      "type": "string"
+    },
+    "raw_answer": {
+      "type": "string"
+    },
+    "source_type": {
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ]
+    },
+    "content_owner": {
+      "enum": [
+        "STUDENT",
+        "PARENT",
+        "TEACHER",
+        "PEER",
+        "EXTERNAL",
+        "UNKNOWN"
+      ]
+    },
+    "target_construct": {
+      "type": "string"
+    },
+    "minimal_interpretation": {
+      "type": "string"
+    },
+    "evidence_directness": {
+      "enum": [
+        "WEAK",
+        "MEDIUM",
+        "STRONG"
+      ]
+    },
+    "evidence_status": {
+      "enum": [
+        "ACTIVE",
+        "UNKNOWN",
+        "UNCERTAIN",
+        "INVALID",
+        "RETRACTED",
+        "SUPERSEDED"
+      ]
+    },
+    "context_scope": {
+      "type": "string"
+    },
+    "contradiction_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "local_guardrails": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "evidence_id",
+    "source_question_id",
+    "question_context",
+    "response_group_id",
+    "raw_answer",
+    "source_type",
+    "content_owner",
+    "target_construct",
+    "minimal_interpretation",
+    "evidence_directness",
+    "evidence_status",
+    "context_scope",
+    "contradiction_refs",
+    "local_guardrails"
+  ],
+  "additionalProperties": false
+}
